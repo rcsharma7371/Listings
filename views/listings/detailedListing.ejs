@@ -1,0 +1,24 @@
+<%= layout('/layouts/boilerplate') %>
+
+<body>
+  <div class="card mt-3 row">
+    <div class="listing-img col-8 offset-2 mt-3">
+      <img src=<%=data.image %> class="card-img-top card-img" alt="Listing ref image">
+    </div>
+    <div class="card-body col-8 offset-2">
+      <h5 class="card-title"><%= data.title %></h5>
+      <h5 class="card-title">₹ <%= data.price.toLocaleString("en-IN") %> / night</h5>
+      <p class="card-text"><%= data.description %></p>
+      <p class="card-text">
+        <small class="text-body-secondary"><%= data.location %></small>
+      </p>
+    </div>
+    <div class="btns col-8 offset-2">
+    <a href="/listing/<%= data._id %>/edit" class="btn btn-dark"
+      >Edit Listing</a>
+    <form action="/listing/<%= data._id %>?_method=DELETE" method="post">
+      <button class="btn btn-dark">Delete</button>
+    </form>
+  </div>
+  </div>
+</body>

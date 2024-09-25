@@ -1,0 +1,37 @@
+<%= layout('/layouts/boilerplate') %>
+<body>
+    <div class="container">
+        <h3>Update Existing Listing</h3>
+        <form action="/listing/<%=data._id %>?_method=PUT" method="post" class="form">
+            <div class="mb-3">
+                <label for="title" class="form-label">Your Listing Title</label>
+                <input type="text" name="listing[title]" id="title" value="<%= data.title %>" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea type="text" name="listing[description]" id="description" rows="5" cols="25" class="form-control"><%= data.description %></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Ref Image</label>
+                <input type="text" name="listing[image]" id="image" class="form-control" value="<%= data.image %>">
+            </div>
+            <div class="mb-3 row">
+                <div class="col-md-4">
+                    <label for="price" class="form-label">Your Price</label>
+                    <input type="number" name="listing[price]" id="price" class="form-control" value="<%= data.price %>">
+                </div>
+                <div class="col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" name="listing[country]" class="form-control" id="country" value="<%= data.country %>">
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" name="listing[location]" id="location" class="form-control" value="<%= data.location %>">
+            </div>
+            <br>
+            <button class="btn btn-danger">Update</button>
+        </form>
+    </div>
+</body>
